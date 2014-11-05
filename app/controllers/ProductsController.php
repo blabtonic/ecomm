@@ -3,7 +3,6 @@
 class ProductsController extends BaseController{
     public function __construct() {
     $this->beforeFilter('csrf', array('on' => 'post'));
-    
   }
   /**
    * Show all categories
@@ -52,10 +51,21 @@ class ProductsController extends BaseController{
   public function postDestroy() {
     $product = Product::find(Input::get('id'));
     if($product) {
+        File::delete('public/'. $product->image);
         $product->delete();
         return Redirect::to('admin/products/index')
         ->with('message', 'Product has been Deleted');
     }
     return Redirect::to('admin/products/index')->with('message','Something went wrong, please try again');
+  }
+  public function postToggleAvailablity(){
+    $product = Product::find(Input::get('id'));
+    
+    if($product) {
+        $product->availablity = Input::get('availablity');
+        $product->save();
+        return Redirect::to('admin/products/index')->with('message', 'Product Updated');
+    }
+    return Redirect::to('admin/products/index')->with('message', 'Invalid Product');
   }
 }
