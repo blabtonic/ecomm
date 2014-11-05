@@ -138,8 +138,8 @@
                         <div id="logo">
                             <a href="#"><span id="logo-accent">e</span>Commerce</a>
                         </div><!-- end logo -->
-                        <p id="store-desc">This is a short description of the store.</p>
-                        <p id="store-copy">&copy; 2013 eCommerce. Theme designed by Adi Purdila.</p>
+                        <p id="store-desc">This website was created by Trystan Hendricks</p>
+                        <p id="store-copy">&copy; 2014 eCommerce. Theme designed by Adi Purdila.</p>
                     </div><!-- end copyright -->
                     <div id="connect">
                         <h4>CONNECT WITH US</h4>
