@@ -16,7 +16,7 @@ class CreateProductsTable extends Migration {
                 $table->increments('id');
                 $table->integer('category_id');
                 $table->foreign('category_id')->references('id')->on('categories'); //uses category_id as foreign key to reference the other 'catagories' table id'
-                $table->string('name');
+                $table->string('title');
                 $table->text('description');
                 $table->decimal('price', 6, 2);
                 $table->boolean('availability')->default(1);
