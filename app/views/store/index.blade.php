@@ -20,23 +20,29 @@
     <div id="products">
         @foreach($products as $product)
         <div class="product">
-            <a href="/store/view/{{ $product->$id }}">
-                <img src="img/product.gif" alt="Product" class="feature"> {{ HTML::image($product->image, $product->title, array('class'=> 'feature', 'width'=> 245, 'height'=> 120)) }}
+            <a href="/store/view/{{ $product->id }}">
+                {{ HTML::image($product->image, $product->title, array('class'=> 'feature', 'width'=> 245, 'height'=> 120)) }}
             </a>
 
-            <h3><a href="/store/view/{{ $product->$id }}">{{ $product->title }}</a></h3>
+            <h3><a href="/store/view/{{ $product->id }}">{{ $product->title }}</a></h3>
 
             <p>{{ $product->description }}</p>
 
-            <h5>Availability: <span class="instock">In Stock</span></h5> <!-- will need to finish the availablity view -->
-
+            <h5>Availability:
+                <span class="{{ Availability::displayClass($product->availability) }}">
+                    {{ Availability::display($product->availability) }}
+                </span>
+            </h5>
+        
             <p>
                 <a href="#" class="cart-btn">
-                    <span class="price">$499.08</span>
-                    <img src="img/white-cart.gif" alt="Add to Cart">
+                    <span class="price">{{ $product->price }}</span>
+                    {{ HTML::image('img/white-cart.gif', 'Add to Cart') }}
                     ADD TO CART
                 </a>
             </p>
         </div>
-    </div><!-- end products -->
+        @endforeach
+    </div>
+        
 @stop
