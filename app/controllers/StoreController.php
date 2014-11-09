@@ -3,6 +3,7 @@
 class StoreController extends BaseController{
     
     public function __construct(){
+        parent::__construct;
         $this->beforeFilter('crtf', array('on' => 'post'));
     }
     
