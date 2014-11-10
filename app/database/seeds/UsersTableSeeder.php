@@ -1,6 +1,6 @@
 <?php
 
-class UsersTableSeeder extends Seeders {
+class UsersTableSeeder extends Seeder {
     
     public function run() {
         $user = new User;
