@@ -11,7 +11,7 @@
 @section('content')
     
     <div id="search results">
-          @foreach($products as $product)
+        @foreach($products as $product)
         <div class="product">
             <a href="/store/view/{{ $product->id }}">
                 {{ HTML::image($product->image, $product->title, array('class'=> 'feature', 'width'=> 245, 'height'=> 120)) }}

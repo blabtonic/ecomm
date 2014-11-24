@@ -18,7 +18,7 @@
             <tr>
                 <td>{{ $product->id }}</td>
                 <td>
-                    {{ HTML::image($product->image, $product->name array('width'=> 60, 'height' => 40)) }}<img src="img/main-product.png" alt="Product" width="65" height="37" /> 
+                    {{ HTML::image($product->image, $product->name, array('width'=> 60, 'height' => 40)) }} 
                     {{ $product->name }}
                 </td>
                 <td>${{ $product->price }}</td>
@@ -36,10 +36,18 @@
             
             <tr class="total">
                 <td colspan="5">
-                Subtotal: {{ Cart::total() }}<br />
-                <span>TOTAL: $1200</span><br />
+                Subtotal: ${{ Cart::total() }}<br />
+                <span>TOTAL: ${{ Cart::total() }}</span><br />
+                
+                <input type="hidden" name="cmd" value="_xclick">
+                <input type="hidden" name="business" value="office@shop.com">
+                <input type="hidden" name="item_name" value="ecomm Store Purchase">
+                <input type="hidden" name="amount" value="{{ Cart::total() }}">
+                <input type="hidden" name="first_name" value="{{ Auth::user()->firstname }}">
+                <input type="hidden" name="last_name" value="{{ Auth::user()->lastname }}">
+                <input type="hidden" name="email" value="{{ Auth::user()->email }}">
 
-                <a href="#" class="tertiary-btn">CONTINUE SHOPPING</a>
+                {{ HTML::link('/', 'Continue Shopping', array('class'=>'tertiary-btn')) }}
                 <input type="submit" value="CHECKOUT WITH PAYPAL" class="secondary-cart-btn">
                 </td>
             </tr>
